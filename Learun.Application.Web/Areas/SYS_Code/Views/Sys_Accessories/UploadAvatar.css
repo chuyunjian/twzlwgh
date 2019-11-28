@@ -1,0 +1,192 @@
+﻿/*
+ * 创建人：yandi
+ * 日 期：2018-12-28
+ * 描 述：头像上传	
+ */
+.lr-form-layout-body {
+    padding: 0 5px 5px 5px;
+}
+
+.lr-form-file-queue-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.lr-form-file-queue {
+    position: relative;
+}
+
+.lr-form-file-queue-item {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 60px;
+}
+
+.lr-file-image {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+    .lr-file-image img {
+        width: 40px;
+        height: 40px;
+    }
+
+.lr-file-name {
+    line-height: 50px;
+}
+
+.lr-msg {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+    .lr-msg .fa-check-circle {
+        color: #5cb85c;
+    }
+
+    .lr-msg .fa-exclamation-circle {
+        color: #b94a48;
+    }
+
+.lr-tool-bar {
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 25px;
+    line-height: 50px;
+    color: #666;
+    cursor: pointer;
+}
+
+    .lr-tool-bar > i {
+        margin-left: 8px;
+    }
+
+    .lr-tool-bar .fa-minus-circle {
+        color: #b94a48;
+    }
+
+    .lr-tool-bar .fa-cloud-download {
+        color: #3498db;
+    }
+
+.lr-uploader-progress {
+    position: absolute;
+    bottom: 2px;
+    left: 60px;
+    height: 4px;
+    width: 500px;
+    width: calc(100% - 90px);
+}
+
+.lr-uploader-progress-bar {
+    position: relative;
+    height: 100%;
+    background-color: #148ae5;
+    border-radius: 4px;
+}
+
+
+.lr-form-file-queue-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    margin: -15px 0 0 -150px;
+}
+
+    .lr-form-file-queue-bg h1 {
+        color: #666;
+        font-size: 20px;
+        font-family: Microsoft Yahei;
+        padding-bottom: 2px;
+        margin: 0;
+    }
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.avatar-btns > div {
+    padding: 5px 15px;
+}
+/*对上传按钮的样式重写*/
+#lr_add_file_btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 8px 15px;
+    background-color: #148ae5;
+    font-family: PingFangSC-Regular,Microsoft YaHei,SimSun,Arial,Helvetica,Verdana,sans-serif !important;
+    font-size: 12px;
+    border: none;
+}
+
+    #lr_add_file_btn:hover {
+        background-color: #137fd3;
+    }
+
+.avatar-wrapper {
+    height: 240px !important;
+}
+
+    .avatar-wrapper .cropper-container {
+        height: 100%;
+    }
+
+
+.col-9 {
+    width: 100%;
+    z-index: 999;
+    position: relative;
+}
+
+.col-3 {
+    width: 20%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.avatar-preview {
+    float: left;
+    margin-left: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+    .avatar-preview:hover {
+        border-color: #ccf;
+        box-shadow: 0 0 5px rgba(0,0,0,.15);
+    }
+
+    .avatar-preview img {
+        width: 100%;
+    }
+
+.preview-op {
+    height: 3.5cm;
+    width: 2.5cm;
+}

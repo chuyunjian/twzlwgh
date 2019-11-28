@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+@model Learun.Application.TwoDevelopment.SYS_Code.APPEntity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+    <title>下载</title>
+
+    <script>
+    var Width = document.documentElement.clientWidth;
+    var Height = document.documentElement.clientHeight;
+    window.onload = function () {
+        document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 10 + "px";
+        document.getElementById("bgColor").style.width = Width + "px";
+        document.getElementById("bgColor").style.height = Height + "px";
+        //document.getElementById("bgColor").style.background=""
+    }
+
+    function DownLoadAndroid() {
+        if ("@ViewData["HasAndroidApp"]" == "false") {
+            alert("暂无可用Android可下载");
+        } else {
+            window.location.href = '@Model.FileUrl';
+        }
+    }
+
+    function DownLoadIOS() {
+        if ("@Learun.Util.Config.GetValue("IosAppUrl")" == "") {
+                alert("App正在上架中");
+            } else {
+            window.location.href = "@Learun.Util.Config.GetValue("IosAppUrl")";
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+    <div id="bgColor">
+        <div>
+            <img onclick="DownLoadAndroid();" src="~/Content/images/androidDown.png" />
+            <img onclick="DownLoadIOS();" src="~/Content/images/iosDown.png" />
+        </div>
+    </div>
+</body>
+</html>
+@Html.AppendCssFile("/Areas/SYS_Code/Views/APP/APP.css")

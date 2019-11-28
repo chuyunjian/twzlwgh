@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "接口-调试";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+@model ILookup<System.Web.Http.Controllers.HttpControllerDescriptor, System.Web.Http.Description.ApiDescription>
+<link href="~/Content/json-viewer/jquery.json-viewer.css" rel="stylesheet" />
+<div class="table-c gridPanel" id="gridPanel">
+    <div class="table-c">
+        <table border="0" cellspacing="0" cellpadding="0">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th width="15%">所属控制器</th>
+                    <td colspan="2">@item.Key.ControllerName</td>
+                </tr>
+                foreach (var api in item)
+                {
+                    List<string> param = new List<string>();
+                    <tr>
+                        <th width="15%">路由</th>
+                        <td colspan="2">
+                            @if (api.RelativePath.IndexOf("?") > 0)
+                            {
+                                param = api.RelativePath.Substring(api.RelativePath.IndexOf("?") + 1, api.RelativePath.Length - api.RelativePath.IndexOf("?") - 1).Split('&').ToList();
+                                <input type="text" class="form-control route" value="@(api.RelativePath.Substring(0, api.RelativePath.IndexOf("?")))" />
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control route" value="@api.RelativePath" />
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="15%">请求方式</th>
+                        <td colspan="2">
+                            <span id="Method">@ViewBag.Method</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="15%">参数</th>
+                        <td width="33%">
+                            <form id="SourceForm" class="lr-form-wrap" style="padding:0;"></form>
+                        </td>
+                        <td width="33%">
+                            <textarea id="SourceCode" class="form-control" style="min-height:120px;height: 100%;" placeholder="键值对（K:V）数据">
+                            @foreach (var value in param)
+                            {
+                                var temp = value.Split('=');
+                                if (temp.Length>1)
+                                {
+<text>@temp[0]:@temp[1]</text>
+                                }
+                                else if (temp.Length>0)
+                                {
+<text>@temp[0]:</text>
+                                }
+                            }
+                            </textarea>
+                        </td>
+                    </tr>
+                }
+            }
+            <tr>
+                <th width="15%">请求Token</th>
+                <td colspan="2">
+                    <div class="input-group" style="width:100%;">
+                        <input type="text" id="Bearer" class="form-control">
+                        <span class="input-group-btn">
+                            <button id="login" class="btn btn-default" type="button">获取Token</button>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th width="15%">返回结果</th>
+                <td colspan="2" width="75%">
+                    <div id="preData"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="~/Content/json-viewer/jquery.json-viewer.js"></script>
+@Html.AppendJsFile("/Areas/SYS_Code/Views/API/Debug.js")

@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "APP管理";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<style>
+    .lr-query-formcontent table {
+        width: 100%;
+    }
+
+        .lr-query-formcontent table td {
+            height: 25px;
+            line-height: 25px;
+            padding: 5px;
+        }
+</style>
+<div class="lr-layout">
+    <div class="lr-layout-center">
+        <div class="lr-layout-wrap">
+            <div class="lr-layout-title">APP版本控制</div>
+            <div class="lr-layout-tool">
+                <div class="lr-layout-tool-left">
+                    <div class="lr-layout-tool-item">
+                        <div id="multiple_condition_query">
+                            <div class="lr-query-formcontent">
+                                <table id="filter-form" style="width:100%;">
+                                    <tr>
+                                        <td width="100px">版本名称：</td>
+                                        <td>
+                                            <input id="Name" type="text" class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>类型：</td>
+                                        <td>
+                                            <div id="Type" type="select" class="ui-select">
+                                                <ul>
+                                                    <li data-value="0">Android</li>
+                                                    <li data-value="1">IOS</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lr-layout-tool-right">
+                    <div class=" btn-group btn-group-sm">
+                        <a id="lr_refresh" class="btn btn-default"><i class="fa fa-refresh"></i></a>
+                    </div>
+                    <div class=" btn-group btn-group-sm">
+                        <a id="lr_add" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp;新增</a>
+                        <a id="lr_edit" class="btn btn-default"><i class="fa fa-pencil-square-o"></i>&nbsp;编辑</a>
+                        <a id="lr_delete" class="btn btn-default"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+                        @*<a id="lr_details" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;详情</a>*@
+                    </div>
+                </div>
+            </div>
+            <div class="lr-layout-body" id="girdtable"></div>
+        </div>
+    </div>
+</div>
+@Html.AppendJsFile("/Areas/SYS_Code/Views/APP/Index.js")

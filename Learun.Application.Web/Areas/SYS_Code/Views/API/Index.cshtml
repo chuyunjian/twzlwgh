@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "接口调试";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<div class="lr-layout" id="lr_layout">
+    <div class="lr-layout-center">
+        <div class="lr-layout-wrap">
+            <div class="lr-layout-title">标题</div>
+            <div class="lr-layout-tool">
+                <div class="lr-layout-tool-left">
+                    <div class="lr-layout-tool-item">
+                        <div id="multiple_condition_query">
+                            <div class="lr-query-formcontent">
+                                <div class="col-xs-12 lr-form-item">
+                                    <div class="lr-form-item-title">所属控制器</div>
+                                    <input id="Controller" type="text" class="form-control" />
+                                </div>
+                                <div class="col-xs-12 lr-form-item">
+                                    <div class="lr-form-item-title">路由</div>
+                                    <input id="Route" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lr-layout-tool-right">
+                    <div class=" btn-group btn-group-sm">
+                        <a id="lr_refresh" class="btn btn-default"><i class="fa fa-refresh"></i></a>
+                    </div>
+                    <div class=" btn-group btn-group-sm" learun-authorize="no">
+                        <a id="lr_debug" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp;调试</a>
+                        <a id="lr_detail" class="btn btn-default"><i class="fa fa-eye"></i>&nbsp;调用说明</a>
+                    </div>
+                </div>
+            </div>
+            <div class="lr-layout-body" id="gridtable"></div>
+        </div>
+    </div>
+</div>
+@Html.AppendJsFile("/Areas/SYS_Code/Views/API/Index.js")

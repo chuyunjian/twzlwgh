@@ -1,0 +1,66 @@
+﻿/*
+ * 创建人：严笛
+ * 日 期：2019-01-12
+ * 描 述：附件展示
+ */
+.sbdAttachments-wrap {
+    position: relative;
+    top: -5px;
+    height: 100%;
+    line-height: 38px;
+}
+
+p {
+    margin: 0;
+}
+
+    p.error {
+        color: red;
+    }
+
+.sbdAttachments-wrap ul li {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+    .sbdAttachments-wrap ul li:last-child {
+        border-bottom: 0;
+        padding-bottom:0;
+    }
+
+    .sbdAttachments-wrap ul li a {
+        margin-right: 10px;
+    }
+
+        .sbdAttachments-wrap ul li a:hover {
+            color: cornflowerblue;
+        }
+
+        .sbdAttachments-wrap ul li a.thumbnail {
+            display: inline-block;
+            width: 80px;
+            float: left;
+            height: 80px;
+            background-color: #eee;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+    .sbdAttachments-wrap ul li p {
+        position: relative;
+        top: 33px;
+        line-height: 14px;
+        word-wrap: break-word;
+        word-break: break-all;
+        overflow: hidden;
+    }
+
+a.download {
+    margin-left: 10px;
+}
+a.InchPhoto {
+    float: left;
+    margin-bottom: 0;
+}

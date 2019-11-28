@@ -1,0 +1,98 @@
+﻿/*
+    自定义样式
+*/
+.lr-form-item-long-title {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 20px;
+}
+
+.lr-form-item-content {
+    position: relative;
+    top: 3px;
+}
+
+.padding0 {
+    padding: 0 !important;
+}
+
+.noborder {
+    margin-top: 5px;
+    border: none !important
+}
+
+.bordernone {
+    border: none !important
+}
+
+    .bordernone thead tr:first-child th {
+        border-top: 0;
+    }
+
+    .bordernone thead tr > th:first-child, .bordernone tbody > tr > td:first-child {
+        border-left: 0;
+    }
+/*滚动条优化*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+/*详情页样式*/
+.form-button-top {
+    position: fixed;
+    top: 0;
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.print-line {
+    margin-bottom: 55px;
+}
+
+.table-c.gridPanel {
+    margin: 10px;
+}
+
+.table-c table {
+    border-right: 1px solid #171717;
+    border-bottom: 1px solid #171717;
+    width: 100%;
+    font-size: 12px;
+}
+
+    .table-c table td {
+        border-left: 1px solid #171717;
+        border-top: 1px solid #171717;
+        padding: 5px;
+        height: 30px;
+    }
+
+    .table-c table th {
+        border-left: 1px solid #171717;
+        border-top: 1px solid #171717;
+        padding: 5px;
+        height: 30px;
+        padding: 5px;
+    }

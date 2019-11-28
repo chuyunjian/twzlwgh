@@ -1,0 +1,134 @@
+﻿/*
+ * 创建人：思必达-严笛
+ * 日 期：2018-12-11
+ * 描 述：sbd-uploader 是对百度webuploader的封装
+ */
+
+.sbdUploader-wrap {
+    position: relative;
+    top: 5px;
+    min-height: 30px;
+    height: auto;
+    width: 100%;
+}
+
+.sbdUploader-input {
+    margin-top: 10px;
+    position: relative;
+    height: 100%;
+    line-height: 50px;
+    width: 100%;
+}
+
+.sbdUploader-InchPhoto .sbdUploader-input {
+    display: none;
+}
+
+.sbdUploader-btn-group {
+}
+
+.sbdUploader-input-btn {
+    padding: 4px 52px;
+}
+
+.sbdUploader-InchPhoto {
+    height: 100%;
+    padding-right: 0;
+}
+
+.sbdUploader-wrap .InchPhoto {
+    width: 2.5cm;
+    height: 3.5cm;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+    .sbdUploader-wrap .InchPhoto img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        background-color: #eee;
+    }
+
+    .sbdUploader-wrap .InchPhoto .fa {
+        position: absolute;
+        font-size: 40px;
+        color: #aaa;
+    }
+
+.sbdUploader-wrap a.delete {
+    margin-left: 10px;
+}
+
+    .sbdUploader-wrap a.delete:hover {
+        color: red;
+    }
+
+.sbdUploader-wrap .lr-form-file-queue-item {
+    position: relative;
+    width: 100%;
+    line-height: 70px;
+    border: 1px solid #ddd;
+    padding-left: 70px;
+    margin-top:10px;
+}
+
+.sbdUploader-wrap .lr-file-image {
+    position: absolute;
+    left: 5px;
+}
+
+    .sbdUploader-wrap .lr-file-image img {
+        width: 60px;
+        height: 60px;
+    }
+
+.sbdUploader-wrap .lr-file-name {
+    line-height: 50px;
+}
+
+.sbdUploader-wrap .lr-msg {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+    .sbdUploader-wrap .lr-msg .fa-check-circle {
+        color: #5cb85c;
+    }
+
+    .sbdUploader-wrap .lr-msg .fa-exclamation-circle {
+        color: #b94a48;
+    }
+
+.sbdUploader-wrap .lr-tool-bar {
+    float: right;
+    position: relative;
+    right: 15px;
+    font-size: 25px;
+    color: #666;
+    cursor: pointer;
+}
+
+    .sbdUploader-wrap .lr-tool-bar > i {
+        margin-left: 8px;
+    }
+
+    .sbdUploader-wrap .lr-tool-bar .fa-minus-circle {
+        color: #b94a48;
+    }
+
+    .sbdUploader-wrap .lr-tool-bar .fa-cloud-download {
+        color: #3498db;
+    }
+.sbdUploader-wrap .extensions {
+    margin-left: 10px;
+    letter-spacing: 1px;
+    position:relative;
+    top:1px;
+}

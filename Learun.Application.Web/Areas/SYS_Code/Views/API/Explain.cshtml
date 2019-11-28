@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "接口使用说明";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+
+<div class="alert alert-warning">
+    <p><a target="_blank" class="btn btn-primary" href="https://www.getpostman.com/downloads/">调试工具：Postman 下载</a></p>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 1.&nbsp;&nbsp;&nbsp;对于需要登录才能使用的接口，请在请求头中增加Bearer Token（Bearer后空一格），Token通过登录接口获得。（建议使用拦截器）
+    <pre>
+例：
+$.ajax({
+    headers: {
+        'Authorization': 'Bearer ' + 'eyJhbGciOiJIUInR5.eyJpZCI6IjEiLCJuYW1lIjoiYWx0MH0.Y1TDz8KjLRhfmhoboiAGPqIZ-ooNc',
+    },
+});
+</pre>
+</div>
+
+<div class="alert alert-warning">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 2.&nbsp;&nbsp;&nbsp;所有接口都要进行防篡改签名，可将提交对象转为FormData键值对，将所有值拼接后末尾加上签名字符串，在进行MD5，此方法和服务端验签数据才能一致。（建议使用拦截器）
+    <pre>
+//用户对象
+var user = {
+    F_UserId: "System",
+    Name: "12312",
+    A1: "1",
+    A2: "1",
+    A3: "1",
+    A4: "1",
+    A5: "1",
+    A6: "1",
+    A7: "1",
+    Role: [{ //角色集合
+        RoleID: "123"
+    }, {
+        RoleID: "456"
+    }],
+    Area: { //区域对象
+        ACode: "01"
+    }
+};
+//所属单位
+var department = {
+    F_DepartmentId: "adasdsad"
+};
+
+//提交对象
+var input = {};
+input.data = user;
+input.department = JSON.stringify(department);//后台要求department为JSON字符串
+
+//1.传统拼接
+var md5str = user.F_UserId;
+md5str = md5str + user.Name;
+md5str = md5str + user.A1;
+md5str = md5str + user.A2;
+md5str = md5str + user.A3;
+md5str = md5str + user.A4;
+md5str = md5str + user.A5;
+md5str = md5str + user.A6;
+md5str = md5str + user.A7;
+for (var i = 0; i < user.Role.length; i++) {
+    md5str = md5str + user.Role[i].RoleID;
+}
+md5str = md5str + user.Area.ACode;
+md5str = md5str + JSON.stringify(department);
+md5str = md5str + "签名字符串";
+var md5k = md5(md5str);
+
+//2.酷炫玩法
+var form_data = new FormData();
+makeFormData(input, form_data);//将整个提交对象转化成键值对
+var dd = [];
+form_data.forEach(a => {
+    dd.push(a);
+});
+var md5str = dd.join('') + "签名字符串";
+var md5k = md5(md5str);
+
+function tj() {
+    //提交数据
+    $.ajax({
+        url: "http://localhost:10100/rest/user/modify",
+        type: "post",
+        headers: {
+            MD5: md5k
+        },
+        datatype: "json",
+        data: input,
+        success: function (data) {
+
+        },
+        error: function (err) {
+
+        }
+    });
+}
+//将对象转为FormData键值对的方法
+function makeFormData(obj, form_data) {
+    var data = [];
+    if (obj instanceof File) {
+        data.push({ key: "", value: obj });
+    }
+    else if (obj instanceof Array) {
+        for (var j = 0, len = obj.length; j < len; j++) {
+            var arr = makeFormData(obj[j]);
+            for (var k = 0, l = arr.length; k < l; k++) {
+                var key = !!form_data ? j + arr[k].key : "[" + j + "]" + arr[k].key;
+                data.push({ key: key, value: arr[k].value })
+            }
+        }
+    }
+    else if (typeof obj == 'object') {
+        for (var j in obj) {
+            var arr = makeFormData(obj[j]);
+            for (var k = 0, l = arr.length; k < l; k++) {
+                var key = !!form_data ? j + arr[k].key : "[" + j + "]" + arr[k].key;
+                data.push({ key: key, value: arr[k].value })
+            }
+        }
+    }
+    else {
+        data.push({ key: "", value: obj });
+    }
+    if (!!form_data) {
+        // 封装
+        for (var i = 0, len = data.length; i < len; i++) {
+            form_data.append(data[i].key, data[i].value)
+        }
+    }
+    else {
+        return data;
+    }
+}
+</pre>
+</div>

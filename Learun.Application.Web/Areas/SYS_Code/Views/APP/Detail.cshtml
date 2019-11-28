@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "APP管理-详情";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+@model Learun.Application.TwoDevelopment.SYS_Code.APPEntity 
+<div class="form-button-top" id="wizard-actions">
+     <div class="btn-group">
+         <a id="lr-reload" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;刷新</a>
+         <a id="lr-print" class="btn btn-default"><i class="fa fa-print"></i>&nbsp;打印</a>
+     </div>
+</div>
+<p class="print-line"></p>
+<div class="table-c gridPanel" id="gridPanel">
+     <div class="table-c">
+          <table border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                    <th width="15%">AGuid</th>
+                    <td width="35%"> @Model.AGuid </td>
+                    <th width="15%">Version</th>
+                    <td width="35%"> @Model.Version </td>
+               </tr>
+               <tr>
+                    <th width="15%">Type</th>
+                    <td width="35%"> @Model.Type </td>
+                    <th width="15%">ARemark</th>
+                    <td width="35%"> @Model.ARemark </td>
+               </tr>
+               <tr>
+                    <th width="15%">SysCode</th>
+                    <td width="35%"> @Model.SysCode </td>
+                    <th width="15%">CreateDate</th>
+                    <td width="35%"> @Model.CreateDate </td>
+               </tr>
+               <tr>
+                    <th width="15%">Name</th>
+                    <td width="35%"> @Model.Name </td>
+               </tr>
+          </table>
+     </div>
+</div>
+@Html.AppendJsFile("/Areas/SYS_Code/Views/APP/Detail.js")

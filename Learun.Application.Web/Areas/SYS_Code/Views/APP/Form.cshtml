@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "APP管理";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<div class="lr-form-wrap" id="form">
+    <div class="col-xs-12 lr-form-item">
+        <div class="lr-form-item-title">版本号<font face="宋体">*</font></div>
+        <input id="Name" type="text" class="form-control" placeholder="(例如:v1.0.1)" isvalid="yes" checkexpession="NotNull" />
+    </div>
+    <div class="col-xs-12 lr-form-item">
+        <div class="lr-form-item-title">更新key<font face="宋体">*</font></div>
+        <input id="Version" type="text" class="form-control" placeholder="(例如:20180903)" isvalid="yes" checkexpession="NotNull" />
+    </div>
+    <div class="col-xs-12 lr-form-item">
+        <div class="lr-form-item-title">操作系统<font face="宋体">*</font></div>
+        <div class="radio">
+            <label>
+                <input name="Type" type="radio" value="1">
+                IOS
+            </label>
+            <label>
+                <input name="Type" type="radio" value="0" checked="checked">
+                Android
+            </label>
+        </div>
+    </div>
+    <div class="col-xs-12 lr-form-item">
+        <div class="lr-form-item-title">上传升级包<font face="宋体">*</font></div>
+        <div id="Attachments"></div>
+    </div>
+    <div class="col-xs-12 lr-form-item">
+        <div class="lr-form-item-title">更新内容<font face="宋体">*</font></div>
+        <textarea id="ARemark" class="form-control" style="height:100px;"></textarea>
+    </div>
+</div>
+@Html.AppendJsFile("/Areas/SYS_Code/Views/APP/Form.js")

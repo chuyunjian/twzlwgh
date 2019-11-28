@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "附件注册-详情";
+    Layout = "~/Views/Shared/_Detail.cshtml";
+}
+@model Learun.Application.TwoDevelopment.SYS_Code.Sys_AccOperationEntity 
+<div class="form-button-top" id="wizard-actions">
+     <div class="btn-group">
+         <a id="lr-reload" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;刷新</a>
+         <a id="lr-print" class="btn btn-default"><i class="fa fa-print"></i>&nbsp;打印</a>
+     </div>
+</div>
+<p class="print-line"></p>
+<div class="table-c gridPanel" id="gridPanel">
+     <div class="table-c">
+          <table border="0" cellspacing="0" cellpadding="0">
+               <tr>
+                    <th width="15%">附件编码</th>
+                    <td width="35%"> @Model.OperationCode </td>
+                    <th width="15%">附件名称</th>
+                    <td width="35%"> @Model.OperationName </td>
+               </tr>
+               <tr>
+                    <th width="15%">文件大小</th>
+                    <td width="35%"> @Model.LimitTotalSize </td>
+                    <th width="15%">单个文件大小</th>
+                    <td width="35%"> @Model.LimitFileSize </td>
+               </tr>
+               <tr>
+                    <th width="15%">上传文件类型</th>
+                    <td width="35%"> @Model.FileType </td>
+                    <th width="15%">保存路径</th>
+                    <td width="35%"> @Model.SavePath </td>
+               </tr>
+               <tr>
+                    <th width="15%">备注</th>
+                    <td width="35%"> @Model.Remark </td>
+                    <th width="15%">创建时间</th>
+                    <td width="35%"> @Model.CreateTime </td>
+               </tr>
+          </table>
+     </div>
+</div>
+@Html.AppendJsFile("/Areas/SYS_Code/Views/Sys_AccOperation/Detail.js")
